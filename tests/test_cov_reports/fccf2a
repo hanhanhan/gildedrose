@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.8.1, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /Users/hannah/Documents/Learning/codewars/gildedrose
+plugins: cov-2.8.1
+collected 1 item
+
+tests/test_gr.py .                                                       [100%]
+
+---------- coverage: platform darwin, python 3.8.1-final-0 -----------
+Name                Stmts   Miss  Cover
+---------------------------------------
+__init__.py             0      0   100%
+gildedrose.py          34     17    50%
+tests/__init__.py       0      0   100%
+tests/test_gr.py       10      0   100%
+---------------------------------------
+TOTAL                  44     17    61%
+
+
+============================== 1 passed in 0.06s ===============================
