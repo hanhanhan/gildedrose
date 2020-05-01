@@ -5,6 +5,7 @@ class GildedRose:
 
     def update_quality(self):
         for item in self.items:
+
             if item.name == "Sulfuras, Hand of Ragnaros":
                 continue
 
@@ -30,6 +31,13 @@ class GildedRose:
 
                 item.quality = min(item.quality, 50)
                 continue
+
+            # "Conjured" items degrade in Quality twice as fast as normal items
+            if item.name == "Conjured Mana Cake" and item.quality > 0:
+                item.quality = item.quality - 1
+            if item.name == "Conjured Mana Cake" and item.sell_in < 0:
+                if item.quality > 0:
+                    item.quality = item.quality - 1
 
             if item.quality > 0:
                 item.quality = item.quality - 1

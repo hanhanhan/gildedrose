@@ -36,9 +36,9 @@ cases = [
     (passes, 5, 50, 4, 50, "Quality is never more than 50"),
     (passes, 4, 48, 3, 50, "Quality is never more than 50"),
     # Conjured - New item to add
-    # (conjured, 10, 12, 9, 10, "Degrades in quality 2x normal rate before sell in"),
-    # (conjured, 0, 12, -1, 8, "Degrades in quality 2x normal rate after sell in"),
-    # (conjured, 0, 0, -1, 0, "Quality is never negative"),
+    (conjured, 10, 12, 9, 10, "Degrades in quality 2x normal rate before sell in"),
+    (conjured, 0, 12, -1, 8, "Degrades in quality 2x normal rate after sell in"),
+    (conjured, 0, 0, -1, 0, "Quality is never negative"),
 ]
 
 
