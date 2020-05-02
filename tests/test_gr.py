@@ -9,8 +9,13 @@ passes = "Backstage passes to a TAFKAL80ETC concert"
 conjured = "Conjured Mana Cake"
 
 parameters = (
-    'name', 'sell_in', 'quality', 'next_expected_sell_in',
-    'next_expected_quality', 'case')
+    "name",
+    "sell_in",
+    "quality",
+    "next_expected_sell_in",
+    "next_expected_quality",
+    "case",
+)
 
 cases = [
     # Sulfuras
@@ -19,7 +24,14 @@ cases = [
     # Aged Brie
     (brie, 2, 0, 1, 1, "Increases by 1 in quality before sell in date"),
     (brie, 5, 50, 4, 50, "Max quality is 50."),
-    (brie, 0, 5, -1, 7, "Quality increases by 2 after sell in date - undocumented behavior in kata."),
+    (
+        brie,
+        0,
+        5,
+        -1,
+        7,
+        "Quality increases by 2 after sell in date - undocumented behavior in kata.",
+    ),
     # +5 Dexterity Vest
     (dexterity, 10, 12, 9, 11, "Typical quality degradation before sell in date"),
     (dexterity, 10, 0, 9, 0, "Typical quality degradation before sell in date"),
@@ -27,8 +39,14 @@ cases = [
     (dexterity, -1, 0, -2, 0, "Quality is never negative"),
     # Passes
     (passes, 0, 50, -1, 0, "Quality drops to 0 after the concert"),
-    (passes, 11, 30, 10, 31,
-     "Quality increases by 1 when there are more than 10 days sell in"),
+    (
+        passes,
+        11,
+        30,
+        10,
+        31,
+        "Quality increases by 1 when there are more than 10 days sell in",
+    ),
     (passes, 10, 49, 9, 50, "Quality is never more than 50"),
     (passes, 10, 30, 9, 32, "Quality increases by 2 when there are 10 days or less"),
     (passes, 5, 30, 4, 33, "Quality increases by 3 when there are 5 days or less"),
@@ -42,7 +60,9 @@ cases = [
 
 
 @pytest.mark.parametrize(parameters, cases)
-def test_item(name, sell_in, quality, next_expected_sell_in, next_expected_quality, case):
+def test_item(
+    name, sell_in, quality, next_expected_sell_in, next_expected_quality, case
+):
     GildedItemByName = name_to_class.get(name, GildedItem)
     item = GildedItemByName(name=name, sell_in=sell_in, quality=quality)
 
