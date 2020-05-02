@@ -1,6 +1,6 @@
 import pytest
 
-from ..gildedrose import *
+from ..gildedrose import Item, GildedRose
 
 sulfuras = "Sulfuras, Hand of Ragnaros"
 brie = "Aged Brie"
@@ -63,8 +63,7 @@ cases = [
 def test_item(
     name, sell_in, quality, next_expected_sell_in, next_expected_quality, case
 ):
-    GildedItemByName = name_to_class.get(name, GildedItem)
-    item = GildedItemByName(name=name, sell_in=sell_in, quality=quality)
+    item = Item(name=name, sell_in=sell_in, quality=quality)
 
     gilded = GildedRose([item])
     gilded.update_quality()
