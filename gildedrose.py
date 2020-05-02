@@ -37,12 +37,13 @@ class GildedItem(Item):
 
     def _update_quality(self):
         """How the quality changes when a day passes."""
-        if self.quality > 0:
-            self.quality = self.quality - 1
+        self.quality = self.quality - 1
 
         if self.sell_in < 0:
-            if self.quality > 0:
-                self.quality = self.quality - 1
+            self.quality = self.quality - 1
+
+        self.quality = min(self.quality, 50)
+        self.quality = max(self.quality, 0)
 
     def update_quality(self):
         """A day passes. 
@@ -90,7 +91,7 @@ class SulfurasItem(GildedItem):
         return
 
     def _update_quality(self):
-        return
+        self.quality = 80
 
 
 @register_item
