@@ -71,17 +71,32 @@ class GildedItem(Item):
         self._update_quality()
 
 
+all_items = []
+
+
+def register_item(cls):
+    """Keep track of all Gilded Rose specialty items for lookup by name."""
+    all_items.append(cls)
+
+
+name_to_class = {cls.name: cls for cls in all_items}
+
+
+@register_item
 class BrieItem(GildedItem):
-    pass
+    name = "Aged Brie"
 
 
+@register_item
 class SulfurasItem(GildedItem):
-    pass
+    name = "Sulfuras, Hand of Ragnaros"
 
 
+@register_item
 class BackstageItem(GildedItem):
-    pass
+    name = "Backstage passes to a TAFKAL80ETC concert"
 
 
+@register_item
 class ConjuredItem(GildedItem):
-    pass
+    name = "Conjured Mana Cake"

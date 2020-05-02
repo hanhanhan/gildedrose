@@ -1,7 +1,6 @@
 import pytest
 
-from ..gildedrose import GildedRose as Gr
-from ..gildedrose import GildedItem
+from ..gildedrose import *
 
 sulfuras = "Sulfuras, Hand of Ragnaros"
 brie = "Aged Brie"
@@ -44,9 +43,10 @@ cases = [
 
 @pytest.mark.parametrize(parameters, cases)
 def test_item(name, sell_in, quality, next_expected_sell_in, next_expected_quality, case):
-    item = GildedItem(name=name, sell_in=sell_in, quality=quality)
+    GildedItemByName = name_to_class.get(name, GildedItem)
+    item = GildedItemByName(name=name, sell_in=sell_in, quality=quality)
 
-    gilded = Gr([item])
+    gilded = GildedRose([item])
     gilded.update_quality()
 
     assert item.sell_in == next_expected_sell_in, case
